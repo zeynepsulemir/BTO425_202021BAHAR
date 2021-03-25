@@ -1,0 +1,57 @@
+﻿@page 
+@model BTO425.Pages.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<style>
+
+    table, th, td {
+    
+        border: 1px solid blue;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    tr:hover {
+        background-color: red;
+    }
+
+</style>
+
+<a asp-page="ogrenciler">Öğrenci listesini görüntülemek için tıklayınız..!</a>
+
+<hr />
+
+<form method="post">
+    Ad:
+    <input id="Text1" type="text" asp-for="ad" />
+    Soyad:
+    <input id="Text1" type="text" asp-for="soyad" />
+    <input id="Submit1" type="submit" value="Kaydet" />
+</form>
+<hr />
+Mesaj: @Model.mesaj
+<hr />
+
+<table>
+    <tr>
+        <th>No</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+    </tr>
+    @{
+        int i = 1;
+
+        @foreach (string kayit in @Model.Kayitlar)
+        {
+            <tr>
+
+                <td>@(i++)</td>
+                <td>@kayit.Split(';')[0]</td>
+                <td>@kayit.Split(';')[1]</td>
+
+            </tr>
+        }
+    }
+</table>

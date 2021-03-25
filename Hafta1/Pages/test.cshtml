@@ -1,0 +1,13 @@
+﻿@page "/detay/{ID}"
+@model BTO425.Pages.testModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+
+}
+<p>Ogrenci No: @Model.OgrenciDetay[0]</p>
+<p>Ad Soyad: @Model.OgrenciDetay[1]</p>
+<p>Vize @Model.OgrenciDetay[2]</p>
+<p>Final @Model.OgrenciDetay[3]</p>
+<hr />
+<a asp-page="ogrenciler">Geri Dön!</a>

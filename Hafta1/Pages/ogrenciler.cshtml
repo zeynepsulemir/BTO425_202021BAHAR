@@ -1,0 +1,40 @@
+﻿@page
+@model BTO425.Pages.ogrencilerModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<style>
+
+    table, th, td {
+        border: 1px solid blue;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    tr:hover {
+        background-color: red;
+    }
+</style>
+
+@{
+    <table>
+        <tr>
+            <th>Sıra</th>
+            <th>Öğrenci No</th>
+            <th>Ad Soyad</th>
+        </tr>
+        @{
+            int i = 1;
+
+            @foreach (string ogrenci in @Model.Ogrenciler)
+            {
+                <tr>
+                    <td>@(i++)</td>
+                    <td><a asp-page="test" asp-route-ID="@ogrenci.Split(';')[0]">@ogrenci.Split(';')[0]</a></td>
+                    <td>@ogrenci.Split(';')[1]</td>
+                </tr>
+            }
+        }
+    </table>
+}
